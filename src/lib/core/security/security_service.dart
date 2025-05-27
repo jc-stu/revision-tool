@@ -62,9 +62,7 @@ class SecurityService {
   }
 
   bool get statusDefenderProtections {
-    return (statusDefenderProtectionTamper ||
-            statusDefenderProtectionRealtime) &&
-        statusDefender;
+    return false;
   }
 
   bool get statusDefenderProtectionTamper {
