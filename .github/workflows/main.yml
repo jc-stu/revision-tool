@@ -61,7 +61,14 @@ jobs:
         run: |
           $hash = Get-FileHash "RevisionTool-Setup.exe" -Algorithm SHA256
           echo "SHA256_HASH=$($hash.Hash)" | Out-File -FilePath $env:GITHUB_ENV -Append
-        
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Revision Tool
+          path: ./*
+          retention-days: 60
+          
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
